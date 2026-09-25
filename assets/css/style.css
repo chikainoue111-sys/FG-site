@@ -701,6 +701,16 @@ h3 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.32);
 }
 
+.footer-sub-link:hover {
+  color: rgba(255, 255, 255, 0.96);
+  border-bottom-color: rgba(255, 255, 255, 0.62);
+}
+
+.footer-sub-link:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.9);
+  outline-offset: 3px;
+}
+
 @media (max-width: 900px) {
   .hero-grid,
   .split-layout,
