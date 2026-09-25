@@ -41,5 +41,8 @@ if (revealItems.length) {
     });
 
     document.documentElement.classList.add('reveal-active');
+    window.requestAnimationFrame(() => {
+      document.documentElement.classList.add('reveal-ready');
+    });
   }
 }

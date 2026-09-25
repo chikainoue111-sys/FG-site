@@ -434,7 +434,7 @@ h3 {
   }
 }
 
-.js-enhanced.reveal-active .reveal-item {
+.js-enhanced.reveal-active.reveal-ready .reveal-item {
   transition: transform 0.9s ease;
 }
 
@@ -447,8 +447,8 @@ h3 {
   --reveal-offset: 34px;
 }
 
-.js-enhanced.reveal-active .reveal-item .feature-editorial-number,
-.js-enhanced.reveal-active .reveal-item .feature-editorial-media {
+.js-enhanced.reveal-active.reveal-ready .reveal-item .feature-editorial-number,
+.js-enhanced.reveal-active.reveal-ready .reveal-item .feature-editorial-media {
   transition: opacity 0.9s ease;
 }
 
