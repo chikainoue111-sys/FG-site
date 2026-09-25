@@ -453,6 +453,7 @@ h3 {
 .js-enhanced.reveal-active .reveal-item {
   --reveal-offset: -34px;
   opacity: 0;
+  visibility: hidden;
   transform: translate3d(var(--reveal-offset), 0, 0);
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
@@ -463,6 +464,7 @@ h3 {
 
 .js-enhanced.reveal-active .reveal-item.is-visible {
   opacity: 1;
+  visibility: visible;
   transform: none;
 }
 
@@ -808,6 +810,7 @@ h3 {
 
   .js-enhanced .reveal-item {
     opacity: 1;
+    visibility: visible;
     transform: none;
     transition: none;
   }

@@ -9,7 +9,9 @@ if (menuToggle && nav) {
 }
 
 const revealItems = document.querySelectorAll('.reveal-item');
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReducedMotion =
+  typeof window.matchMedia === 'function' &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 if (revealItems.length) {
   document.documentElement.classList.add('js-enhanced');
