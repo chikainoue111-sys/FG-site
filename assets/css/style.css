@@ -435,12 +435,11 @@ h3 {
 }
 
 .js-enhanced.reveal-active .reveal-item {
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transition: transform 0.9s ease;
 }
 
 .js-enhanced.reveal-active .reveal-item.reveal-pending {
   --reveal-offset: -34px;
-  opacity: 0.72;
   transform: translate3d(var(--reveal-offset), 0, 0);
 }
 
@@ -448,9 +447,23 @@ h3 {
   --reveal-offset: 34px;
 }
 
+.js-enhanced.reveal-active .reveal-item .feature-editorial-number,
+.js-enhanced.reveal-active .reveal-item .feature-editorial-media {
+  transition: opacity 0.9s ease;
+}
+
+.js-enhanced.reveal-active .reveal-item.reveal-pending .feature-editorial-number,
+.js-enhanced.reveal-active .reveal-item.reveal-pending .feature-editorial-media {
+  opacity: 0.45;
+}
+
 .js-enhanced.reveal-active .reveal-item.is-visible {
-  opacity: 1;
   transform: none;
+}
+
+.js-enhanced.reveal-active .reveal-item.is-visible .feature-editorial-number,
+.js-enhanced.reveal-active .reveal-item.is-visible .feature-editorial-media {
+  opacity: 1;
 }
 
 .card-grid {
