@@ -434,11 +434,14 @@ h3 {
   }
 }
 
+.js-enhanced.reveal-active .reveal-item {
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
 .js-enhanced.reveal-active .reveal-item.reveal-pending {
   --reveal-offset: -34px;
   opacity: 0.72;
   transform: translate3d(var(--reveal-offset), 0, 0);
-  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
 .js-enhanced.reveal-active .reveal-item.reveal-pending.reveal-from-right {

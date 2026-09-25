@@ -29,4 +29,4 @@
 ## 補足
 会社名、住所、メールアドレス、電話番号、代表者名などは仮入力です。正式情報が決まり次第差し替えできます。
 
-- トップページ (`/index.html`) の「選ばれる理由」3項目は、`feature-media-slot` を実画像に置き換えやすい構成です。実運用時は `assets/img/` に画像を配置し、`Image Slot 01/02/03` のプレースホルダー要素ごと `<img>` に差し替え、あわせて `<figure>` の `aria-hidden="true"` を外して画像に適切な `alt` を設定してください。
+- トップページ (`/index.html`) の「選ばれる理由」3項目は、`feature-media-slot` を実画像に置き換えやすい構成です。実運用時は `<figure class="feature-editorial-media">` の枠は残したまま、内側の `Image Slot 01/02/03` プレースホルダー要素を `<img>` に差し替えてください。あわせて `<figure>` の `aria-hidden="true"` を外し、画像に適切な `alt` を設定してください。
