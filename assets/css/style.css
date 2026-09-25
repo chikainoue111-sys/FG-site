@@ -135,6 +135,15 @@ textarea {
   outline-offset: 3px;
 }
 
+.site-nav a.nav-subtle.active {
+  color: var(--gold-500);
+}
+
+.site-nav a.nav-subtle.active::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
 .site-nav a:hover::after,
 .site-nav a.active::after {
   opacity: 1;
