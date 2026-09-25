@@ -378,7 +378,7 @@ h3 {
 
 .home-flow a:focus-visible {
   border-color: var(--gold-500);
-  color: var(--gold-500);
+  color: var(--navy-800);
   outline: 2px solid rgba(185, 151, 95, 0.45);
   outline-offset: 3px;
 }
