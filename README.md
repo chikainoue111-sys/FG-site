@@ -13,7 +13,7 @@
 - services.html
 - message.html
 - contact.html
-- access.html（オンライン面談案内）
+- access.html
 
 ## スタイル
 - 見出し: Manrope / Noto Sans JP
@@ -27,4 +27,6 @@
 4. Production Build の設定を確認しデプロイ
 
 ## 補足
+access.html には、バーチャルオフィス体制に合わせたオンライン面談の案内を掲載しています。
+
 会社名、住所、メールアドレス、電話番号、代表者名などは仮入力です。正式情報が決まり次第差し替えできます。
