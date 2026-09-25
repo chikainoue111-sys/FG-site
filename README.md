@@ -12,8 +12,8 @@
 - company.html
 - services.html
 - message.html
-- access.html
 - contact.html
+- access.html（必要時案内用）
 
 ## スタイル
 - 見出し: Manrope / Noto Sans JP
