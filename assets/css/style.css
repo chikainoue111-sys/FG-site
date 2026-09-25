@@ -795,4 +795,10 @@ h3 {
     transform: none;
     transition: none;
   }
+
+  .js-enhanced .reveal-item .feature-editorial-number,
+  .js-enhanced .reveal-item .feature-editorial-media {
+    opacity: 1;
+    transition: none;
+  }
 }
