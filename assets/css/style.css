@@ -592,8 +592,12 @@ h3 {
 @media (max-width: 900px) {
   .hero-grid,
   .split-layout,
-  .access-box,
   .three-up {
+    grid-template-columns: 1fr;
+  }
+
+  .access-box {
+    display: grid;
     grid-template-columns: 1fr;
   }
 
