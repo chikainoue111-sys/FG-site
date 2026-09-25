@@ -120,6 +120,16 @@ textarea {
   color: var(--gold-500);
 }
 
+.site-nav a.nav-subtle {
+  color: var(--stone-500);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.site-nav a.nav-subtle:hover {
+  color: var(--gold-500);
+}
+
 .site-nav a:hover::after,
 .site-nav a.active::after {
   opacity: 1;
