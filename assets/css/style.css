@@ -386,6 +386,18 @@ h3 {
   background: var(--white);
 }
 
+.home-flow a:hover {
+  border-color: var(--gold-500);
+  color: var(--gold-500);
+}
+
+.home-flow a:focus-visible {
+  border-color: var(--gold-500);
+  color: var(--gold-500);
+  outline: 2px solid rgba(185, 151, 95, 0.45);
+  outline-offset: 3px;
+}
+
 .section-alt {
   background: var(--ice-100);
 }
