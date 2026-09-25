@@ -423,12 +423,8 @@ h3 {
 }
 
 .feature-editorial-item:nth-child(even) {
-  grid-template-columns: minmax(250px, 320px) minmax(0, 1fr) 120px;
-  grid-template-areas: "media copy number";
-}
-
-.feature-editorial-item:nth-child(even) .feature-editorial-number {
-  text-align: right;
+  grid-template-columns: 120px minmax(250px, 320px) minmax(0, 1fr);
+  grid-template-areas: "number media copy";
 }
 
 @supports (clip-path: polygon(8% 0, 100% 0, 92% 100%, 0 100%)) {
