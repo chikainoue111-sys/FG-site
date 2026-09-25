@@ -19,12 +19,11 @@ if (revealItems.length) {
   if (prefersReducedMotion || !('IntersectionObserver' in window)) {
     revealItems.forEach((item) => item.classList.add('is-visible'));
   } else {
-    document.documentElement.classList.add('reveal-active');
-
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            entry.target.classList.remove('reveal-pending');
             entry.target.classList.add('is-visible');
             obs.unobserve(entry.target);
           }
@@ -36,6 +35,11 @@ if (revealItems.length) {
       }
     );
 
-    revealItems.forEach((item) => observer.observe(item));
+    revealItems.forEach((item) => {
+      item.classList.add('reveal-pending');
+      observer.observe(item);
+    });
+
+    document.documentElement.classList.add('reveal-active');
   }
 }
