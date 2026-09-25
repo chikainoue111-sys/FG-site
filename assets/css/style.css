@@ -535,7 +535,7 @@ h3 {
 }
 
 .access-note {
-  min-height: 320px;
+  min-height: 160px;
   border-radius: 22px;
   background: linear-gradient(135deg, rgba(17, 43, 70, 0.08), rgba(185, 151, 95, 0.12));
   color: var(--stone-500);
