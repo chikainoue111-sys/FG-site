@@ -13,7 +13,7 @@
 - services.html
 - message.html
 - contact.html
-- access.html（必要時案内用）
+- access.html（オンライン面談案内）
 
 ## スタイル
 - 見出し: Manrope / Noto Sans JP
