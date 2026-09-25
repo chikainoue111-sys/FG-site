@@ -102,12 +102,6 @@ textarea {
   transition: color 0.2s ease;
 }
 
-.site-nav .nav-current {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--gold-500);
-}
-
 .site-nav a::after {
   content: "";
   position: absolute;
@@ -656,11 +650,6 @@ h3 {
   }
 
   .site-nav a {
-    width: 100%;
-    padding: 8px 0;
-  }
-
-  .site-nav .nav-current {
     width: 100%;
     padding: 8px 0;
   }
