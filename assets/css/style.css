@@ -14,6 +14,7 @@
   --white: #ffffff;
   --shadow-soft: 0 22px 50px rgba(19, 38, 62, 0.07);
   --radius: 26px;
+  --feature-media-width: 320px;
 }
 
 * {
@@ -398,7 +399,7 @@ h3 {
 
 .feature-editorial-media {
   margin: 0;
-  width: min(100%, 320px);
+  width: min(100%, var(--feature-media-width));
   margin-inline: auto;
 }
 
