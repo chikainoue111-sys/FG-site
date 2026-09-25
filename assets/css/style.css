@@ -441,8 +441,8 @@ h3 {
   }
 }
 
-@media (max-width: 900px) {
-  @supports (clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%)) {
+@supports (clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%)) {
+  @media (max-width: 900px) {
     .feature-media-slot,
     .feature-editorial-item:nth-child(even) .feature-media-slot {
       clip-path: polygon(4% 0, 100% 0, 96% 100%, 0 100%);
@@ -450,18 +450,18 @@ h3 {
   }
 }
 
-.js-enhanced .reveal-item {
+.js-enhanced.reveal-active .reveal-item {
   --reveal-offset: -34px;
-  opacity: 0.88;
+  opacity: 0;
   transform: translate3d(var(--reveal-offset), 0, 0);
   transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-.js-enhanced .reveal-item.reveal-from-right {
+.js-enhanced.reveal-active .reveal-item.reveal-from-right {
   --reveal-offset: 34px;
 }
 
-.js-enhanced .reveal-item.is-visible {
+.js-enhanced.reveal-active .reveal-item.is-visible {
   opacity: 1;
   transform: none;
 }

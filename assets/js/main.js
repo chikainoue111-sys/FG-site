@@ -17,6 +17,8 @@ if (revealItems.length) {
   if (prefersReducedMotion || !('IntersectionObserver' in window)) {
     revealItems.forEach((item) => item.classList.add('is-visible'));
   } else {
+    document.documentElement.classList.add('reveal-active');
+
     const observer = new IntersectionObserver(
       (entries, obs) => {
         entries.forEach((entry) => {
