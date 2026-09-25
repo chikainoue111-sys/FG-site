@@ -397,6 +397,7 @@ h3 {
 
 .feature-editorial-media {
   margin: 0;
+  width: min(100%, 320px);
 }
 
 .feature-media-slot {
@@ -537,6 +538,10 @@ h3 {
 
 .split-layout p {
   color: var(--stone-500);
+}
+
+.about-heading br {
+  display: inline;
 }
 
 .cta-shell {
@@ -707,6 +712,10 @@ h3 {
 
   .feature-media-slot {
     min-height: 160px;
+  }
+
+  .about-heading br {
+    display: none;
   }
 
   .value-editorial {
