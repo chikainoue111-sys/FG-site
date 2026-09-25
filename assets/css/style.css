@@ -534,7 +534,7 @@ h3 {
   gap: 24px;
 }
 
-.map-placeholder {
+.access-note {
   min-height: 320px;
   border-radius: 22px;
   background: linear-gradient(135deg, rgba(17, 43, 70, 0.08), rgba(185, 151, 95, 0.12));
