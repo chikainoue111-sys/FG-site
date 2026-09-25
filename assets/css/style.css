@@ -399,6 +399,7 @@ h3 {
 .feature-editorial-media {
   margin: 0;
   width: min(100%, 320px);
+  margin-inline: auto;
 }
 
 .feature-media-slot {
