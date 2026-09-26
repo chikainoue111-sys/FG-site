@@ -31,9 +31,6 @@ const whyFgScrollRegion = document.querySelector('.why-fg-scroll');
 const syncWhyFgScrollRegion = () => {
   if (!whyFgScrollRegion) return;
 
-  whyFgScrollRegion.setAttribute('role', 'region');
-  whyFgScrollRegion.setAttribute('aria-labelledby', 'why-fg-heading');
-
   if (reducedMotionQuery && reducedMotionQuery.matches) {
     whyFgScrollRegion.removeAttribute('tabindex');
     return;
