@@ -90,6 +90,25 @@ if (homeSnapPage && !prefersReducedMotion) {
     nextFrame.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  const getCurrentFrame = () => {
+    const headerOffset = header ? header.offsetHeight : 0;
+    const pivot = headerOffset + 24;
+    const inView =
+      snapFrames.find((frame) => {
+        const rect = frame.getBoundingClientRect();
+        return rect.top <= pivot && rect.bottom > pivot;
+      }) || null;
+
+    if (inView) return inView;
+
+    return snapFrames.reduce((nearest, frame) => {
+      if (!nearest) return frame;
+      const nearestDistance = Math.abs(nearest.getBoundingClientRect().top - pivot);
+      const frameDistance = Math.abs(frame.getBoundingClientRect().top - pivot);
+      return frameDistance < nearestDistance ? frame : nearest;
+    }, null);
+  };
+
   document.addEventListener('keydown', (event) => {
     if (!snapFrames.length || isReducedMotion()) return;
     if (event.defaultPrevented) return;
@@ -101,13 +120,14 @@ if (homeSnapPage && !prefersReducedMotion) {
     if (isTypingTarget) return;
 
     let direction = 0;
-    if (event.key === 'PageDown') direction = 1;
-    if (event.key === 'PageUp') direction = -1;
+    if (event.key === 'PageDown' || event.key === 'ArrowDown') direction = 1;
+    if (event.key === 'PageUp' || event.key === 'ArrowUp') direction = -1;
     if (event.code === 'Space') direction = event.shiftKey ? -1 : 1;
     if (!direction) return;
 
     const activeFrame =
-      (event.target instanceof Element && event.target.closest('.snap-frame')) || snapFrames[0];
+      (event.target instanceof Element && event.target.closest('.snap-frame')) || getCurrentFrame();
+    if (!activeFrame) return;
     const scrollArea = findSnapParent(event.target) || activeFrame.querySelector('.snap-frame-scroll');
     if (!canMoveFrame(scrollArea, direction)) return;
 
