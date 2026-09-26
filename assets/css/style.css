@@ -1168,12 +1168,6 @@ h3 {
   outline-offset: 3px;
 }
 
-@media (min-width: 901px) and (prefers-reduced-motion: no-preference) {
-  .why-fg-frame.section-shell::before {
-    background-attachment: fixed;
-  }
-}
-
 @media (max-width: 900px) {
   .hero-grid,
   .why-fg-layout,
@@ -1391,10 +1385,6 @@ h3 {
 
   .why-fg-scroll-track {
     gap: 0;
-  }
-
-  .why-fg-frame.section-shell::before {
-    background-attachment: scroll;
   }
 
   html {
