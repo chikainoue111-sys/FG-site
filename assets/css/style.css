@@ -1284,6 +1284,7 @@ h3 {
 
   .why-fg-scroll .feature-story {
     min-height: auto;
+    scroll-snap-align: none;
     border-radius: 0;
     box-shadow: none;
   }
