@@ -841,6 +841,9 @@ h3 {
   align-items: center;
   font-size: clamp(1.02rem, 1.3vw, 1.3rem);
   font-weight: 800;
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.28em;
   padding: 8px 2px;
   min-height: 44px;
 }
