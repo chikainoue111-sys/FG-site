@@ -870,6 +870,11 @@ h3 {
   text-decoration-color: var(--gold-400);
 }
 
+.cta-text-link-light:focus-visible {
+  color: var(--gold-400);
+  text-decoration-color: var(--gold-400);
+}
+
 .cta-shell {
   padding-top: 50px;
 }
