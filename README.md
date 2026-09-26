@@ -3,7 +3,7 @@
 保険代理店向け外部監査会社の会社案内サイトです。
 
 ## 目的
-- 外部監査・内部統制・ガバナンス・フォローアップに関する信頼感のあるブランド表現
+- 外部監査・内部統制／ガバナンス・各種フォローアップに関する信頼感のあるブランド表現
 - スマホ対応の静的サイト
 - Cloudflare Pages へのそのままデプロイ対応
 
@@ -11,6 +11,7 @@
 - index.html
 - company.html
 - services.html
+- pricing.html
 - message.html
 - access.html
 - contact.html
