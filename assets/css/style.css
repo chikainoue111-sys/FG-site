@@ -1274,6 +1274,8 @@ h3 {
   }
 
   .why-fg-scroll {
+    height: auto;
+    overflow: visible;
     border-radius: 0;
     background: transparent;
     box-shadow: none;
