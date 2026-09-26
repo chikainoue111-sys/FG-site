@@ -75,10 +75,6 @@ textarea {
   max-width: 860px;
 }
 
-.page-hero > .container.narrow {
-  max-width: none;
-}
-
 .section-shell {
   padding: 90px 0;
 }
@@ -537,7 +533,7 @@ h3 {
   border-radius: calc(var(--radius) + 4px);
   background: rgba(17, 43, 70, 0.06);
   box-shadow: inset 0 0 0 1px rgba(17, 43, 70, 0.06);
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 }
 
 .why-fg-scroll:focus-visible {
