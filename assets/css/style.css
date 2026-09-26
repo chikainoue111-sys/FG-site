@@ -81,7 +81,6 @@ html.home-snap-page-root {
 .home-snap-page .home-main .snap-frame {
   min-height: var(--snap-frame-height);
   scroll-snap-align: start;
-  scroll-snap-stop: always;
   scroll-margin-top: var(--snap-header-offset);
   overflow: hidden;
 }
@@ -1127,7 +1126,6 @@ h3 {
 
   .home-snap-page .home-main .snap-frame {
     min-height: auto;
-    scroll-snap-stop: normal;
     overflow: visible;
   }
 

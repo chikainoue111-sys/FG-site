@@ -120,8 +120,8 @@ if (homeSnapPage && !prefersReducedMotion) {
     if (isTypingTarget) return;
 
     let direction = 0;
-    if (event.key === 'PageDown' || event.key === 'ArrowDown') direction = 1;
-    if (event.key === 'PageUp' || event.key === 'ArrowUp') direction = -1;
+    if (event.key === 'PageDown') direction = 1;
+    if (event.key === 'PageUp') direction = -1;
     if (!direction) return;
 
     const activeFrame =
