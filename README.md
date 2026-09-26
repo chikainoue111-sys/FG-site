@@ -11,7 +11,6 @@
 - index.html
 - company.html
 - services.html
-- pricing.html
 - message.html
 - access.html
 - contact.html

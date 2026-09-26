@@ -643,6 +643,31 @@ h3 {
   gap: 30px;
 }
 
+.detail-card h2 {
+  margin-bottom: 10px;
+}
+
+.detail-card .service-meta {
+  margin-bottom: 18px;
+  color: var(--navy-800);
+  font-weight: 600;
+}
+
+.detail-card p + h3,
+.detail-card ul + h3 {
+  margin-top: 28px;
+}
+
+.detail-card h3 + p,
+.detail-card h3 + ul {
+  margin-top: 10px;
+}
+
+.detail-card ul + p,
+.detail-card p + p {
+  margin-top: 16px;
+}
+
 .detail-card ul {
   margin: 18px 0 0;
   padding-left: 1.1rem;
