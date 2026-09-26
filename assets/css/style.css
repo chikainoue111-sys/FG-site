@@ -63,8 +63,7 @@ textarea {
 }
 
 .site-header .container,
-.site-footer .container,
-.page-hero > .container {
+.site-footer .container {
   width: 100%;
   max-width: none;
   margin: 0;
@@ -729,7 +728,7 @@ h3 {
 
 .text-link:hover {
   color: var(--gold-500);
-  text-decoration-color: var(--navy-800);
+  text-decoration-color: var(--gold-500);
 }
 
 .text-link:focus-visible {
