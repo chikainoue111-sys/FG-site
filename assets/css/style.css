@@ -503,7 +503,7 @@ h3 {
   color: rgba(255, 255, 255, 0.92);
 }
 
-.why-fg-frame {
+.why-fg-frame.section-shell {
   padding: 0;
 }
 
@@ -729,6 +729,7 @@ h3 {
 .text-link:hover {
   color: var(--gold-500);
   text-decoration-color: var(--gold-500);
+  text-decoration-thickness: 3px;
 }
 
 .text-link:focus-visible {
