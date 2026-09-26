@@ -580,12 +580,14 @@ h3 {
   overflow-y: auto;
   padding: 0 !important;
   border-radius: calc(var(--radius) + 6px);
-  background: rgba(13, 29, 48, 0.18);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+  background: rgba(13, 29, 48, 0.44);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.52),
+    0 16px 40px rgba(6, 13, 22, 0.2);
   scroll-snap-type: y proximity;
   overscroll-behavior-y: contain;
   scrollbar-width: thin;
-  scrollbar-color: rgba(217, 187, 123, 0.96) rgba(255, 255, 255, 0.18);
+  scrollbar-color: rgba(217, 187, 123, 0.98) rgba(13, 29, 48, 0.62);
 }
 
 .why-fg-scroll:focus-visible {
@@ -598,7 +600,7 @@ h3 {
 }
 
 .why-fg-scroll::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.18);
+  background: rgba(13, 29, 48, 0.62);
   border-radius: 999px;
 }
 
