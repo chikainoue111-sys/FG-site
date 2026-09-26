@@ -420,6 +420,10 @@ h3 {
   text-align: right;
 }
 
+.feature-editorial-item-right .feature-editorial-copy p {
+  text-align: left;
+}
+
 .feature-editorial-media {
   margin: 0;
   width: min(100%, var(--feature-media-width));
