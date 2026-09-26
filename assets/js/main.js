@@ -119,6 +119,14 @@ if (homeSnapPage && !prefersReducedMotion) {
 
     if (isTypingTarget) return;
 
+    const isInteractiveTarget =
+      event.target instanceof HTMLElement &&
+      event.target.closest(
+        'a, button, input, textarea, select, summary, [role="button"], [tabindex]:not([tabindex="-1"])'
+      );
+
+    if (isInteractiveTarget) return;
+
     let direction = 0;
     if (event.key === 'PageDown') direction = 1;
     if (event.key === 'PageUp') direction = -1;
