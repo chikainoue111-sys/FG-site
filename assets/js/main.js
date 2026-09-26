@@ -119,13 +119,11 @@ if (homeSnapPage && !prefersReducedMotion) {
 
     if (isTypingTarget) return;
 
-    const isInteractiveTarget =
+    const isControlTarget =
       event.target instanceof HTMLElement &&
-      event.target.closest(
-        'a, button, input, textarea, select, summary, [role="button"], [tabindex]:not([tabindex="-1"])'
-      );
+      event.target.closest('button, input, textarea, select, summary, [role="button"]');
 
-    if (isInteractiveTarget) return;
+    if (isControlTarget) return;
 
     let direction = 0;
     if (event.key === 'PageDown') direction = 1;
