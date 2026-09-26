@@ -845,6 +845,12 @@ h3 {
   min-height: 44px;
 }
 
+.cta-text-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
 .cta-text-link-light {
   color: rgba(255, 255, 255, 0.96);
   text-decoration-color: rgba(255, 255, 255, 0.76);
