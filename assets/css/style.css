@@ -854,6 +854,12 @@ h3 {
   border-radius: 8px;
 }
 
+.cta-text-link:hover,
+.cta-text-link:focus-visible {
+  color: var(--gold-500);
+  text-decoration-color: var(--gold-500);
+}
+
 .cta-text-link-light {
   color: rgba(255, 255, 255, 0.96);
   text-decoration-color: rgba(255, 255, 255, 0.76);
