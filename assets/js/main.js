@@ -26,28 +26,6 @@ if (homeSnapPage && header) {
 
 const revealItems = document.querySelectorAll('.reveal-item');
 const prefersReducedMotion = reducedMotionQuery ? reducedMotionQuery.matches : false;
-const whyFgScrollRegion = document.querySelector('.why-fg-scroll');
-
-const syncWhyFgScrollRegion = () => {
-  if (!whyFgScrollRegion) return;
-
-  if (reducedMotionQuery && reducedMotionQuery.matches) {
-    whyFgScrollRegion.removeAttribute('tabindex');
-    return;
-  }
-
-  whyFgScrollRegion.setAttribute('tabindex', '0');
-};
-
-syncWhyFgScrollRegion();
-
-if (reducedMotionQuery) {
-  if (typeof reducedMotionQuery.addEventListener === 'function') {
-    reducedMotionQuery.addEventListener('change', syncWhyFgScrollRegion);
-  } else if (typeof reducedMotionQuery.addListener === 'function') {
-    reducedMotionQuery.addListener(syncWhyFgScrollRegion);
-  }
-}
 
 if (revealItems.length) {
   document.documentElement.classList.add('js-enhanced');
