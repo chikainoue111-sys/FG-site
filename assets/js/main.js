@@ -122,7 +122,6 @@ if (homeSnapPage && !prefersReducedMotion) {
     let direction = 0;
     if (event.key === 'PageDown' || event.key === 'ArrowDown') direction = 1;
     if (event.key === 'PageUp' || event.key === 'ArrowUp') direction = -1;
-    if (event.code === 'Space') direction = event.shiftKey ? -1 : 1;
     if (!direction) return;
 
     const activeFrame =
