@@ -524,6 +524,12 @@ h3 {
   min-height: 0;
 }
 
+.why-fg-hint {
+  margin: 18px 0 0;
+  color: var(--stone-500);
+  font-size: 0.92rem;
+}
+
 .why-fg-scroll {
   min-height: 0;
   height: 100%;
@@ -533,11 +539,31 @@ h3 {
   background: rgba(17, 43, 70, 0.06);
   box-shadow: inset 0 0 0 1px rgba(17, 43, 70, 0.06);
   scroll-snap-type: y proximity;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(185, 151, 95, 0.95) rgba(17, 43, 70, 0.12);
 }
 
 .why-fg-scroll:focus-visible {
   outline: 2px solid rgba(17, 43, 70, 0.24);
   outline-offset: 6px;
+}
+
+.why-fg-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.why-fg-scroll::-webkit-scrollbar-track {
+  background: rgba(17, 43, 70, 0.12);
+  border-radius: 999px;
+}
+
+.why-fg-scroll::-webkit-scrollbar-thumb {
+  background: rgba(185, 151, 95, 0.95);
+  border-radius: 999px;
+}
+
+.why-fg-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-400);
 }
 
 .why-fg-scroll-track {
