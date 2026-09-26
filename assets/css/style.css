@@ -569,7 +569,6 @@ h3 {
 .why-fg-scroll-track {
   display: flex;
   flex-direction: column;
-  gap: 24px;
   min-height: 100%;
 }
 
@@ -1289,7 +1288,7 @@ h3 {
   }
 
   .why-fg-scroll-track {
-    gap: 16px;
+    gap: 0;
   }
 
   html {
