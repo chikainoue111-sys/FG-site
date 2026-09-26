@@ -64,7 +64,7 @@ textarea {
   margin: 0 auto;
 }
 
-.home-main .container {
+.home-main > .section-shell > .container {
   max-width: 1480px;
 }
 
@@ -552,11 +552,16 @@ h3 {
   max-width: min(100%, 760px);
 }
 
+.why-fg-intro .eyebrow,
 .why-fg-intro .section-head h2,
 .why-fg-intro .section-head p:last-child,
 .why-fg-hint,
 .why-fg-intro .text-link {
   color: rgba(255, 255, 255, 0.95);
+}
+
+.why-fg-intro .eyebrow {
+  color: var(--gold-400);
 }
 
 .why-fg-intro .text-link {
