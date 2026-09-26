@@ -119,11 +119,12 @@ if (homeSnapPage && !prefersReducedMotion) {
 
     if (isTypingTarget) return;
 
-    const isControlTarget =
-      event.target instanceof HTMLElement &&
-      event.target.closest('button, input, textarea, select, summary, [role="button"]');
+    const isAllowedKeyboardTarget =
+      event.target === document.body ||
+      event.target === document.documentElement ||
+      (event.target instanceof HTMLElement && event.target.classList.contains('snap-frame-scroll'));
 
-    if (isControlTarget) return;
+    if (!isAllowedKeyboardTarget) return;
 
     let direction = 0;
     if (event.key === 'PageDown') direction = 1;
