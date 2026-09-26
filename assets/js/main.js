@@ -10,6 +10,10 @@ if (menuToggle && nav) {
 
 const homeSnapPage = document.body.classList.contains('home-snap-page');
 const header = document.querySelector('.site-header');
+const reducedMotionQuery =
+  typeof window.matchMedia === 'function'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)')
+    : null;
 
 if (homeSnapPage && header) {
   const updateSnapOffset = () => {
@@ -21,9 +25,33 @@ if (homeSnapPage && header) {
 }
 
 const revealItems = document.querySelectorAll('.reveal-item');
-const prefersReducedMotion =
-  typeof window.matchMedia === 'function' &&
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const prefersReducedMotion = reducedMotionQuery ? reducedMotionQuery.matches : false;
+const whyFgScrollRegion = document.querySelector('.why-fg-scroll');
+
+const syncWhyFgScrollRegion = () => {
+  if (!whyFgScrollRegion) return;
+
+  if (reducedMotionQuery && reducedMotionQuery.matches) {
+    whyFgScrollRegion.removeAttribute('tabindex');
+    whyFgScrollRegion.removeAttribute('role');
+    whyFgScrollRegion.removeAttribute('aria-labelledby');
+    return;
+  }
+
+  whyFgScrollRegion.setAttribute('tabindex', '0');
+  whyFgScrollRegion.setAttribute('role', 'region');
+  whyFgScrollRegion.setAttribute('aria-labelledby', 'why-fg-heading');
+};
+
+syncWhyFgScrollRegion();
+
+if (reducedMotionQuery) {
+  if (typeof reducedMotionQuery.addEventListener === 'function') {
+    reducedMotionQuery.addEventListener('change', syncWhyFgScrollRegion);
+  } else if (typeof reducedMotionQuery.addListener === 'function') {
+    reducedMotionQuery.addListener(syncWhyFgScrollRegion);
+  }
+}
 
 if (revealItems.length) {
   document.documentElement.classList.add('js-enhanced');
@@ -61,11 +89,6 @@ if (revealItems.length) {
 
 if (homeSnapPage && !prefersReducedMotion) {
   const snapFrames = Array.from(document.querySelectorAll('.home-main .snap-frame'));
-  const reducedMotionQuery =
-    typeof window.matchMedia === 'function'
-      ? window.matchMedia('(prefers-reduced-motion: reduce)')
-      : null;
-
   const isReducedMotion = () => reducedMotionQuery && reducedMotionQuery.matches;
 
   const findSnapParent = (target) =>
