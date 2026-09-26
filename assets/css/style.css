@@ -841,7 +841,7 @@ h3 {
   align-items: center;
   font-size: clamp(1.02rem, 1.3vw, 1.3rem);
   font-weight: 800;
-  padding: 8px 0;
+  padding: 8px 14px;
   min-height: 44px;
 }
 
