@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="FG Siteは保険代理店向けの外部監査会社です。外部監査と統制支援を中心に、監査人2名体制でシンプルにご案内しています。"
+      content="FortGateの会社概要と代表メッセージ。保険代理店の実務に根ざした外部監査、内部統制・ガバナンス支援をご案内します。"
     />
-    <title>会社概要 | 保険代理店向け外部監査会社 FG Site</title>
+    <title>会社概要・代表メッセージ | FortGate</title>
+
+    <script>
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,93 +21,235 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
+
   <body>
+    <a href="#main-content" class="skip-link">本文へ移動</a>
+
     <header class="site-header">
       <div class="container header-inner">
-        <a href="index.html" class="brand" aria-label="FG Site ホーム">
-          <img src="assets/img/logo.svg" alt="FG Site" class="brand-logo" />
+        <a href="index.html" class="brand" aria-label="FortGate ホーム">
+          <img src="assets/img/logo.JPG" alt="FortGate" class="brand-logo" />
         </a>
 
-        <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <button
+          class="menu-toggle"
+          aria-label="メニューを開く"
+          aria-expanded="false"
+          aria-controls="global-nav"
+        >
           <span></span><span></span><span></span>
         </button>
 
-        <nav class="site-nav" aria-label="グローバルナビゲーション">
+        <nav id="global-nav" class="site-nav" aria-label="グローバルナビゲーション">
           <a href="index.html">トップ</a>
           <a href="company.html" class="active" aria-current="page">会社概要</a>
           <a href="services.html">事業内容</a>
-          <a href="message.html">代表メッセージ</a>
+          <a href="company.html#message">代表メッセージ</a>
           <a href="contact.html" class="nav-cta">お問い合わせ</a>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <section class="page-hero section-shell">
         <div class="container narrow">
-          <p class="eyebrow dark">Company</p>
-          <h1>会社概要</h1>
-          <p>保険代理店の実務に根ざした外部監査と統制支援を提供しています。</p>
+          <p class="eyebrow dark fade-up">Company</p>
+          <h1 class="fade-up">会社概要・代表メッセージ</h1>
+          <p class="fade-up">
+            保険代理店の実務に根ざした視点で、<br />
+            外部監査と統制支援を提供しています。
+          </p>
         </div>
       </section>
 
       <section class="section-shell">
         <div class="container narrow">
-          <table class="info-table" aria-label="会社概要">
+          <div class="section-head">
+            <p class="eyebrow dark fade-up">Profile</p>
+            <h2 class="fade-up">会社概要</h2>
+          </div>
+
+          <table class="info-table fade-up">
             <tbody>
               <tr>
-                <th scope="row">会社名</th>
-                <td>株式会社 FG Site / 合同会社 FG Site</td>
+                <th>会社名</th>
+                <td>合同会社 FortGate</td>
               </tr>
               <tr>
-                <th scope="row">概要</th>
-                <td>保険代理店の実務に根ざした外部監査と内部統制・ガバナンス支援を提供しています。</td>
+                <th>代表者</th>
+                <td>井上　智圭</td>
               </tr>
               <tr>
-                <th scope="row">設立</th>
+                <th>設立</th>
                 <td>2026年11月</td>
               </tr>
               <tr>
-                <th scope="row">所在地</th>
-                <td>東京都（バーチャルオフィス）</td>
+                <th>本店所在地</th>
+                <td>〒542-0081 大阪府大阪市中央区南船場3丁目2番22号 おおきに南船場ビル205</td>
               </tr>
               <tr>
-                <th scope="row">営業時間</th>
+                <th>営業時間</th>
                 <td>平日 9:00〜18:00</td>
               </tr>
               <tr>
-                <th scope="row">コアサービス</th>
-                <td>
-                  外部監査、内部統制・ガバナンス支援、自己点検・業務品質評価フォローアップ
-                </td>
+                <th>事業内容</th>
+                <td>外部監査、内部統制・ガバナンス支援、自己点検・業務品質評価フォローアップ</td>
               </tr>
               <tr>
-                <th scope="row">体制</th>
+                <th>体制</th>
                 <td>監査人2名</td>
               </tr>
               <tr>
-                <th scope="row">お問い合わせ</th>
-                <td><a href="contact.html">お問い合わせフォーム</a></td>
+                <th>お問い合わせ</th>
+                <td><a href="contact.html" class="text-link">お問い合わせフォーム</a></td>
               </tr>
             </tbody>
           </table>
         </div>
       </section>
+
+      <section id="message" class="section-shell section-alt">
+        <div class="container narrow">
+          <div class="section-head">
+            <p class="eyebrow dark fade-up">Message</p>
+            <h2 class="fade-up">代表メッセージ</h2>
+            <p class="fade-up">監査を「指摘」で終わらせず、「改善」につなげるために。</p>
+          </div>
+
+          <div class="message-box">
+            <p class="fade-up">
+              私は13年間、営業の第一線で代理店の皆様と向き合い、現場で多くのことを学ばせていただきました。
+              その経験は、いまのFortGateの原点になっています。
+            </p>
+
+            <div class="message-points fade-up">
+              <article class="message-point">
+                <h3>1. 目指してきたこと</h3>
+                <p>
+                  保険会社社員時代からの目標は、「保険代理店という仕事を、子どもたちの“なりたい職業”にすること」です。
+                </p>
+              </article>
+
+              <article class="message-point">
+                <h3>2. 社会における役割</h3>
+                <p>
+                  2020年のコロナ禍でも、保険代理店はエッセンシャルワークとして社会を支え続けました。
+                  生活と事業を守る、欠かせない存在だと考えています。
+                </p>
+              </article>
+
+              <article class="message-point">
+                <h3>3. いま必要なこと</h3>
+                <p>
+                  変革期のいまこそ、代理店が“代理店として”自立し、強くなることが重要です。
+                  FortGateは、監査を改善の起点に変え、実行しやすい仕組みづくりを支援します。
+                </p>
+              </article>
+            </div>
+
+            <p class="fade-up">
+              これまで業界で学ばせていただいたことへの恩返しとして、代理店の皆様とともに一歩ずつ前に進んでまいります。
+            </p>
+
+            <p class="message-signature fade-up">井上　智圭</p>
+          </div>
+
+          <div class="profile-extra fade-up">
+            <h3>経歴</h3>
+            <ul class="career-list">
+              <li>大阪府出身</li>
+              <li>首都大学東京（現：東京都立大学）卒業</li>
+              <li>大手損害保険会社に入社</li>
+              <li>営業現場で保険実務を経験し、代理店経営支援に従事</li>
+              <li>グループ生命保険会社への出向を経験</li>
+              <li>2026年3月　損害保険会社を退社</li>
+              <li>2026年11月　合同会社FortGateを設立</li>
+            </ul>
+          </div>
+
+          <div class="profile-extra fade-up">
+            <h3>保有資格</h3>
+            <ul class="cert-list">
+              <li>保険コンプライアンス・オフィサー2級</li>
+              <!-- 取得後に追加
+              <li>金融内部監査士</li>
+              -->
+            </ul>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <div class="footer-brand">
-          <img src="assets/img/logo.svg" alt="FG Site" class="footer-logo" />
-        </div>
-        <p>Audit &amp; Assurance</p>
-      </div>
-      <div class="container footer-meta">
-        <small>© 2026 FG Site. All rights reserved.</small>
-        <small><a href="access.html" class="footer-sub-link">アクセス（バーチャルオフィス）</a></small>
+      <div class="container footer-meta-simple has-link">
+        <a href="privacy.html" class="footer-privacy-link">プライバシーポリシー</a>
+        <small>© 2026 FortGate. All rights reserved.</small>
       </div>
     </footer>
 
-    <script src="assets/js/main.js"></script>
+    <script>
+      (() => {
+        const toggle = document.querySelector(".menu-toggle");
+        const nav = document.querySelector("#global-nav");
+        const mobileQuery = window.matchMedia("(max-width: 960px)");
+
+        if (toggle && nav) {
+          const setMenuOpen = (open) => {
+            nav.classList.toggle("is-open", open);
+            toggle.setAttribute("aria-expanded", String(open));
+            toggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
+          };
+
+          toggle.addEventListener("click", () => {
+            const isOpen = toggle.getAttribute("aria-expanded") === "true";
+            setMenuOpen(!isOpen);
+          });
+
+          nav.addEventListener("click", (event) => {
+            if (mobileQuery.matches && event.target.closest("a")) setMenuOpen(false);
+          });
+
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+              setMenuOpen(false);
+              toggle.focus();
+            }
+          });
+
+          document.addEventListener("click", (event) => {
+            if (
+              mobileQuery.matches &&
+              toggle.getAttribute("aria-expanded") === "true" &&
+              !nav.contains(event.target) &&
+              !toggle.contains(event.target)
+            ) {
+              setMenuOpen(false);
+            }
+          });
+
+          mobileQuery.addEventListener("change", () => setMenuOpen(false));
+        }
+      })();
+
+      (() => {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const targets = document.querySelectorAll(".fade-up");
+        if (!targets.length || reduceMotion) {
+          targets.forEach((el) => el.classList.add("is-inview"));
+          return;
+        }
+
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-inview");
+            io.unobserve(entry.target);
+          });
+        }, { threshold: 0.15 });
+
+        targets.forEach((el) => io.observe(el));
+      })();
+    </script>
   </body>
 </html>
+
