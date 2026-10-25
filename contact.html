@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="保険代理店向け外部監査、内部統制・ガバナンス支援、自己点検・業務品質評価フォローアップに関するご相談はこちら。"
+      content="自己点検・態勢整備・外部監査対応のご相談を受け付けています。FortGateは初回相談無料です。"
     />
-    <title>お問い合わせ | 保険代理店向け監査相談 FG Site</title>
+    <title>お問い合わせ | FortGate</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,12 +15,127 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+
+    <style>
+      /* contact page minimal */
+      .contact-box {
+        display: grid;
+        gap: 20px;
+      }
+
+      .contact-card,
+      .contact-form-box {
+        padding: 22px;
+        border: 1px solid rgba(17, 43, 70, 0.1);
+        border-radius: 12px;
+        background: #fff;
+      }
+
+      .contact-card h2,
+      .contact-form-box h2 {
+        margin-bottom: 10px;
+      }
+
+      .contact-card p {
+        color: var(--body-text);
+        line-height: 1.9;
+      }
+
+      .contact-lead {
+        margin-bottom: 10px;
+      }
+
+      .contact-free-note {
+        margin-top: 12px;
+        padding: 10px 12px;
+        border-left: 3px solid var(--gold-500);
+        background: #f8fbff;
+        color: var(--navy-800);
+        font-weight: 600;
+      }
+
+      .line-cta {
+        margin-top: 12px;
+      }
+
+      .line-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        border: 1px solid rgba(17, 43, 70, 0.2);
+        background: #fff;
+        font-weight: 700;
+      }
+
+      .line-note {
+        margin-top: 8px;
+        font-size: 0.86rem;
+        color: #6b7d8f;
+      }
+
+      .contact-form {
+        display: grid;
+        gap: 14px;
+      }
+
+      .form-row {
+        display: grid;
+        gap: 6px;
+      }
+
+      .form-row label {
+        font-weight: 600;
+        color: var(--navy-800);
+        font-size: 0.92rem;
+      }
+
+      .required {
+        color: #b54747;
+        font-size: 0.82rem;
+        margin-left: 6px;
+      }
+
+      .form-row input,
+      .form-row select,
+      .form-row textarea {
+        width: 100%;
+        border: 1px solid rgba(17, 43, 70, 0.18);
+        border-radius: 10px;
+        padding: 11px 12px;
+        background: #fff;
+        color: var(--text);
+      }
+
+      .form-row textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+
+      .form-help {
+        font-size: 0.82rem;
+        color: #6b7d8f;
+      }
+
+      .form-submit {
+        margin-top: 4px;
+      }
+
+      @media (max-width: 760px) {
+        .contact-card,
+        .contact-form-box {
+          padding: 16px;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="index.html" class="brand" aria-label="FG Site ホーム">
-          <img src="assets/img/logo.svg" alt="FG Site" class="brand-logo" />
+        <a href="index.html" class="brand" aria-label="FortGate ホーム">
+          <img src="assets/img/logo.JPG" alt="FortGate" class="brand-logo" />
         </a>
 
         <button class="menu-toggle" aria-label="メニューを開く" aria-expanded="false">
@@ -42,26 +157,79 @@
         <div class="container narrow">
           <p class="eyebrow dark">Contact</p>
           <h1>お問い合わせ</h1>
-          <p>保険代理店の監査・統制・フォローアップに関するご相談を受け付けています。</p>
+          <p>
+            自己点検・態勢整備・外部監査対応でお悩みの方は、まずは一度お問い合わせください。<br />
+            相談料は無料です。
+          </p>
         </div>
       </section>
 
       <section class="section-shell">
         <div class="container narrow contact-box">
           <div class="contact-card">
-            <h2>お問い合わせ先</h2>
-            <p>
-              外部監査、内部統制・ガバナンス支援、自己点検・業務品質評価フォローアップについて、お気軽にご相談ください。
+            <h2>ご相談窓口</h2>
+            <p class="contact-lead">
+              現状の体制やお悩みを伺いながら、必要な対応を一緒に整理します。
             </p>
-            <p><strong>メール：</strong> info@fgsite.example.com</p>
-            <p><strong>電話：</strong> 03-0000-0000</p>
-            <p><strong>受付時間：</strong> 平日 9:00〜18:00</p>
+            <p><strong>メール：</strong>fortgate.info@gmail.com</p>
+            <p><strong>受付時間：</strong>平日 10:00〜18:00</p>
+
+            <p class="contact-free-note">初回相談料は無料です。</p>
+
+            <div class="line-cta">
+              <a href="https://lin.ee/REPLACE_ME" class="line-btn" target="_blank" rel="noopener noreferrer">
+                公式LINEで相談する
+              </a>
+              <p class="line-note">※ LINE開設後にURLを差し替えてください。</p>
+            </div>
           </div>
 
-          <div class="message-box contact-form-box">
-            <p>
-              監査準備の進め方がわからない場合でも、現状をお伺いしながら必要な対応を整理します。まずは現状とお悩みをご共有ください。
-            </p>
+          <div class="contact-form-box">
+            <h2>お問い合わせフォーム</h2>
+            <p class="form-help">※ 必須項目をご入力のうえ送信してください。</p>
+
+            <!-- backend未接続。接続時にactionを差し替え -->
+            <form class="contact-form" action="#" method="post">
+              <div class="form-row">
+                <label for="name">お名前<span class="required">必須</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+
+              <div class="form-row">
+                <label for="email">メールアドレス<span class="required">必須</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+
+              <div class="form-row">
+                <label for="agency">代理店名</label>
+                <input id="agency" name="agency" type="text" />
+              </div>
+
+              <div class="form-row">
+                <label for="agency-url">代理店ホームページURL</label>
+                <input id="agency-url" name="agency_url" type="url" placeholder="https://example.com" />
+              </div>
+
+              <div class="form-row">
+                <label for="category">ご相談内容</label>
+                <select id="category" name="category">
+                  <option value="">選択してください</option>
+                  <option value="self-check">自己点検</option>
+                  <option value="system">態勢整備</option>
+                  <option value="external-audit">外部監査対応</option>
+                  <option value="other">その他</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="message">お問い合わせ内容<span class="required">必須</span></label>
+                <textarea id="message" name="message" required></textarea>
+              </div>
+
+              <div class="form-submit">
+                <button type="submit" class="btn btn-primary">送信する</button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
@@ -70,12 +238,12 @@
     <footer class="site-footer">
       <div class="container footer-inner">
         <div class="footer-brand">
-          <img src="assets/img/logo.svg" alt="FG Site" class="footer-logo" />
+          <img src="assets/img/logo.JPG" alt="FortGate" class="footer-logo" />
         </div>
         <p>Audit &amp; Assurance</p>
       </div>
       <div class="container footer-meta">
-        <small>© 2026 FG Site. All rights reserved.</small>
+        <small>© 2026 FortGate. All rights reserved.</small>
         <small><a href="access.html" class="footer-sub-link">アクセス（バーチャルオフィス）</a></small>
       </div>
     </footer>
