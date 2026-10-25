@@ -62,6 +62,83 @@
             <p>
               監査準備の進め方がわからない場合でも、現状をお伺いしながら必要な対応を整理します。まずは現状とお悩みをご共有ください。
             </p>
+            <p class="contact-free-consult">
+              自己点検・態勢整備・外部監査対応でお悩みの方は、まずは一度お問い合わせください。
+              <strong>相談料は無料です。</strong>
+            </p>
+
+            <h2>お問い合わせフォーム</h2>
+            <!-- GoogleフォームのURLと各 entry ID を、Googleフォームの「事前入力したURL」から取得した値に差し替えてください。 -->
+            <form
+              class="contact-form"
+              action="https://docs.google.com/forms/d/e/REPLACE_WITH_FORM_ID/formResponse"
+              method="post"
+            >
+              <div class="form-field">
+                <label for="contact-name">お名前 <span>必須</span></label>
+                <input
+                  id="contact-name"
+                  name="entry.REPLACE_WITH_NAME_ENTRY_ID"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="contact-email">メールアドレス <span>必須</span></label>
+                <input
+                  id="contact-email"
+                  name="entry.REPLACE_WITH_EMAIL_ENTRY_ID"
+                  type="email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="contact-agency">代理店名</label>
+                <input
+                  id="contact-agency"
+                  name="entry.REPLACE_WITH_AGENCY_ENTRY_ID"
+                  type="text"
+                  autocomplete="organization"
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="contact-website">代理店ホームページ</label>
+                <input
+                  id="contact-website"
+                  name="entry.REPLACE_WITH_WEBSITE_ENTRY_ID"
+                  type="url"
+                  inputmode="url"
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="contact-category">相談種別 <span>必須</span></label>
+                <select id="contact-category" name="entry.REPLACE_WITH_CATEGORY_ENTRY_ID" required>
+                  <option value="">選択してください</option>
+                  <option value="外部監査">外部監査</option>
+                  <option value="内部統制・ガバナンス支援">内部統制・ガバナンス支援</option>
+                  <option value="自己点検・業務品質評価フォローアップ">自己点検・業務品質評価フォローアップ</option>
+                  <option value="その他">その他</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="contact-message">お問い合わせ内容 <span>必須</span></label>
+                <textarea
+                  id="contact-message"
+                  name="entry.REPLACE_WITH_MESSAGE_ENTRY_ID"
+                  rows="6"
+                  required
+                ></textarea>
+              </div>
+
+              <button class="contact-submit" type="submit">お問い合わせを送信</button>
+            </form>
           </div>
         </div>
       </section>

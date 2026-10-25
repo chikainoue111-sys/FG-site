@@ -102,8 +102,6 @@ html.home-snap-page-root {
 .home-snap-page .home-main .snap-frame .snap-frame-scroll {
   height: auto;
   overflow: visible;
-   padding-top: clamp(32px, 6vh, 72px);
-   padding-bottom: clamp(32px, 6vh, 72px);
   padding-top: clamp(32px, 6vh, 72px);
   padding-bottom: clamp(32px, 6vh, 72px);
   scrollbar-gutter: auto;
@@ -753,10 +751,17 @@ h3 {
 
 .info-card,
 .detail-card,
-.message-box,
 .access-box,
 .contact-card {
   background: var(--white);
+  border: 1px solid rgba(17, 43, 70, 0.08);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 30px 28px;
+}
+
+.message-box {
+  background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
   border: 1px solid rgba(17, 43, 70, 0.08);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
@@ -870,13 +875,6 @@ h3 {
   outline: 2px solid rgba(17, 43, 70, 0.28);
   outline-offset: 4px;
 }
-
-  .about-big-cta {
-    font-size: clamp(1.18rem, 5.3vw, 1.55rem);
-    line-height: 1.6;
-    max-width: 100%;
-  }
-
 
 .cta-text-link {
   display: inline-flex;
@@ -1122,10 +1120,6 @@ h3 {
   margin-top: 36px;
 }
 
-.message-box {
-  background: linear-gradient(180deg, #ffffff 0%, #f7fafc 100%);
-}
-
 .message-signature {
   margin-top: 22px !important;
   text-align: right;
@@ -1157,6 +1151,92 @@ h3 {
 
 .contact-form-box {
   background: var(--ice-100);
+}
+
+.contact-free-consult {
+  margin-top: 20px !important;
+  color: var(--navy-800) !important;
+  font-weight: 600;
+}
+
+.contact-free-consult strong {
+  display: inline-block;
+  margin-left: 0.3em;
+  color: var(--gold-500);
+}
+
+.contact-form-box h2 {
+  margin: 28px 0 18px;
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+}
+
+.contact-form {
+  display: grid;
+  gap: 18px;
+}
+
+.form-field {
+  display: grid;
+  gap: 7px;
+}
+
+.form-field label {
+  color: var(--navy-800);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.form-field label span {
+  margin-left: 0.4em;
+  color: #9a5d3f;
+  font-size: 0.76rem;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 10px 12px;
+  color: var(--text);
+  background: var(--white);
+  border: 1px solid rgba(17, 43, 70, 0.2);
+  border-radius: 8px;
+}
+
+.form-field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.form-field input:focus-visible,
+.form-field select:focus-visible,
+.form-field textarea:focus-visible {
+  outline: 2px solid var(--navy-700);
+  outline-offset: 2px;
+}
+
+.contact-submit {
+  justify-self: start;
+  min-height: 48px;
+  padding: 10px 24px;
+  color: var(--white);
+  font-weight: 700;
+  background: var(--navy-800);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.contact-submit:hover {
+  background: var(--gold-500);
+  transform: translateY(-1px);
+}
+
+.contact-submit:focus-visible {
+  outline: 2px solid var(--navy-800);
+  outline-offset: 4px;
 }
 
 .site-footer {
@@ -1223,16 +1303,6 @@ h3 {
     grid-template-columns: 1fr;
   }
 
-  .why-fg-layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto;
-  }
-
-  .why-fg-intro {
-    position: static;
-    top: auto;
-  }
-
   .feature-editorial-item {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1290,6 +1360,12 @@ h3 {
 
   .about-heading br {
     display: none;
+  }
+
+  .about-big-cta {
+    font-size: clamp(1.18rem, 5.3vw, 1.55rem);
+    line-height: 1.6;
+    max-width: 100%;
   }
 
   .value-editorial {
@@ -1377,10 +1453,6 @@ h3 {
     padding: 70px 0;
   }
 
-  .home-snap-page .home-main .snap-frame .snap-frame-scroll {
-    height: auto;
-  }
-
   .feature-story-inner-right {
     text-align: left;
   }
@@ -1456,4 +1528,3 @@ h3 {
     transition: none;
   }
 }
-
