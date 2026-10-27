@@ -219,64 +219,45 @@
                 </div>
               </div>
 
-              <footer class="site-footer site-footer-simple">
-                <div class="footer-meta-simple">
-                  <small>© 2026 FortGate. All rights reserved.</small>
                 </div>
-              </footer>
-            </div>
-          </section>
+              </section>
         </div>
       </div>
     </main>
 
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="footer-identity">
+              <a href="index.html" class="footer-brand" aria-label="FortGate ホーム">
+                <img src="assets/img/logo.JPG" alt="FortGate" class="footer-logo" />
+              </a>
+              <p class="footer-tagline">Audit &amp; Assurance</p>
+        </div>
+        <div class="footer-info">
+              <p class="footer-address-label">本店所在地</p>
+              <p class="footer-address">
+                〒542-0081 大阪府大阪市中央区南船場3丁目2番22号 おおきに南船場ビル205
+              </p>
+              <nav class="footer-nav" aria-label="フッターナビゲーション">
+                <a href="company.html">会社概要</a>
+                <a href="services.html">事業内容</a>
+                <a href="message.html">代表メッセージ</a>
+                <a href="access.html">アクセス</a>
+                <a href="contact.html">お問い合わせ</a>
+                <a href="privacy.html">プライバシーポリシー</a>
+              </nav>
+        </div>
+      </div>
+      <div class="container footer-meta">
+        <small>© 2026 FortGate. All rights reserved.</small>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 
     <script>
-      (() => {
-        const toggle = document.querySelector(".menu-toggle");
-        const nav = document.querySelector("#global-nav");
-        const mobileQuery = window.matchMedia("(max-width: 960px)");
-
-        if (toggle && nav) {
-          const setMenuOpen = (open) => {
-            nav.classList.toggle("is-open", open);
-            toggle.setAttribute("aria-expanded", String(open));
-            toggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
-          };
-
-          toggle.addEventListener("click", () => {
-            const isOpen = toggle.getAttribute("aria-expanded") === "true";
-            setMenuOpen(!isOpen);
-          });
-
-          nav.addEventListener("click", (event) => {
-            if (mobileQuery.matches && event.target.closest("a")) setMenuOpen(false);
-          });
-
-          document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
-              setMenuOpen(false);
-              toggle.focus();
-            }
-          });
-
-          document.addEventListener("click", (event) => {
-            if (
-              mobileQuery.matches &&
-              toggle.getAttribute("aria-expanded") === "true" &&
-              !nav.contains(event.target) &&
-              !toggle.contains(event.target)
-            ) {
-              setMenuOpen(false);
-            }
-          });
-
-          mobileQuery.addEventListener("change", () => setMenuOpen(false));
-        }
-      })();
-
       (() => {
         const header = document.querySelector(".site-header");
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
