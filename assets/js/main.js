@@ -115,8 +115,9 @@ if (revealItems.length) {
 const contactForm = document.querySelector('[data-contact-form]');
 if (contactForm) {
   const formStatus = contactForm.querySelector('[data-form-status]');
-  const spamTrap = contactForm.querySelector('[name="company_website"]');
-  const contactEmail = 'fortgate.info@gmail.com';
+  const spamTrap = contactForm.querySelector('[name="_gotcha"]');
+  const submitButton = contactForm.querySelector('[type="submit"]');
+  let isSending = false;
 
   contactForm.addEventListener(
     'invalid',
@@ -129,41 +130,44 @@ if (contactForm) {
     true
   );
 
-  contactForm.addEventListener('submit', (event) => {
+  contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+    if (isSending) return;
     if (spamTrap && spamTrap.value) return;
     if (!contactForm.reportValidity()) return;
 
-    const formData = new FormData(contactForm);
-    const subject = 'FortGateへのお問い合わせ';
-    const message = [
-      `お名前：${formData.get('name')}`,
-      `メールアドレス：${formData.get('email')}`,
-      `代理店名：${formData.get('agency') || '未入力'}`,
-      `代理店ホームページURL：${formData.get('agency_url') || '未入力'}`,
-      `ご相談内容：${formData.get('category') || '未選択'}`,
-      '',
-      'お問い合わせ内容：',
-      formData.get('message'),
-    ].join('\n');
-    const mailtoUrl = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
-
+    isSending = true;
+    if (submitButton) submitButton.disabled = true;
+    contactForm.setAttribute('aria-busy', 'true');
     if (formStatus) {
-      formStatus.innerHTML = '';
-      formStatus.dataset.state = 'success';
-      formStatus.append(
-        document.createTextNode(
-          'メール作成画面を開きます。内容をご確認のうえ、メールアプリから送信してください。開かない場合は '
-        )
-      );
-      const emailLink = document.createElement('a');
-      emailLink.href = `mailto:${contactEmail}`;
-      emailLink.textContent = contactEmail;
-      formStatus.append(emailLink, document.createTextNode(' へ直接ご連絡ください。'));
+      formStatus.textContent = '送信中です。しばらくお待ちください。';
+      formStatus.dataset.state = 'sending';
     }
 
-    window.location.href = mailtoUrl;
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: new FormData(contactForm),
+        headers: { Accept: 'application/json' },
+      });
+      if (!response.ok) throw new Error('Form submission failed');
+
+      contactForm.reset();
+      if (formStatus) {
+        formStatus.textContent = 'お問い合わせを送信しました。ご連絡ありがとうございます。';
+        formStatus.dataset.state = 'success';
+      }
+    } catch {
+      if (formStatus) {
+        formStatus.textContent = '送信できませんでした。時間をおいて再度お試しいただくか、上記メールアドレスへ直接ご連絡ください。';
+        formStatus.dataset.state = 'error';
+      }
+    } finally {
+      isSending = false;
+      if (submitButton) submitButton.disabled = false;
+      contactForm.setAttribute('aria-busy', 'false');
+    }
   });
 }
 

@@ -1214,6 +1214,16 @@ body:not(.home-page) .fade-up.is-inview {
   outline-color: var(--gold-text);
 }
 
+.form-consent {
+  color: var(--navy-800);
+  font-size: 0.92rem;
+}
+
+.form-consent a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
 .form-submit {
   margin-top: 4px;
 }
