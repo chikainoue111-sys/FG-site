@@ -161,7 +161,7 @@ if (contactForm) {
         control.disabled = true;
       });
       if (formStatus) {
-        formStatus.textContent = 'お問い合わせを送信しました。ご連絡ありがとうございます。内容を確認のうえ担当者よりご連絡します。再送信は不要です。';
+        formStatus.innerHTML = 'お問い合わせありがとうございます。<br>内容を確認のうえ、原則2営業日以内に担当者より改めてご連絡いたします。';
         formStatus.dataset.state = 'success';
       }
     } catch {
