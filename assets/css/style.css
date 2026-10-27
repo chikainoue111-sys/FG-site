@@ -1275,3 +1275,89 @@ body:not(.home-page) .fade-up.is-inview {
     padding-bottom: 14px;
   }
 }
+
+.message-signature-block {
+  margin-top: 1.8rem;
+  margin-left: auto;
+  margin-right: 0;
+  display: table;      /* fit-contentより安定して右寄せされる */
+  text-align: left;    /* ブロック内は左揃え維持 */
+  line-height: 1.4;
+}
+
+.message-title {
+  display: block;
+  margin: 0 0 0.35rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  letter-spacing: 0.02em;
+  opacity: 1;
+}
+
+.message-signature {
+  display: block;
+  margin: 0;
+  font-size: clamp(1.7rem, 2.2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  color: #16324a;
+  font-family:
+    "BIZ UDPMincho",
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "Noto Serif JP",
+    serif;
+}
+
+.message-box .message-signature-block {
+  align-self: flex-end;
+}
+
+/* 既存を上書き（このブロックはファイルの一番下に置く） */
+.message-box .message-signature-block {
+  margin-top: 1.8rem;
+  width: max-content !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  text-align: left !important;   /* ブロック内は左揃え */
+  display: block !important;
+  float: right !important;       /* 右に固定 */
+  clear: both;
+  line-height: 1.4;
+}
+
+.message-box .message-title {
+  display: block;
+  margin: 0 0 0.35rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  letter-spacing: 0.02em;
+}
+
+.message-box .message-signature {
+  display: block;
+  margin: 0;
+  font-size: clamp(1.7rem, 2.2vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  color: #16324a;
+  font-family:
+    "BIZ UDPMincho",
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "Noto Serif JP",
+    serif;
+}
+
+/* 後続要素が回り込まないように */
+.profile-extra {
+  clear: both;
+}
+
+.message-box .message-signature-block {
+  margin-bottom: 2.2rem !important; /* ← 名前の下だけ余白を追加 */
+}
