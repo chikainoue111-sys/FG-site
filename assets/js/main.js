@@ -43,7 +43,9 @@ const header = document.querySelector('.site-header');
 if (header) {
   let scrollPending = false;
   const updateHeader = () => {
-    header.classList.toggle('is-scrolled', window.scrollY > 8);
+    // Keep the thresholds farther apart than the 20px header height change.
+    const isScrolled = header.classList.contains('is-scrolled');
+    header.classList.toggle('is-scrolled', isScrolled ? window.scrollY > 4 : window.scrollY > 48);
     scrollPending = false;
   };
 
@@ -118,6 +120,7 @@ if (contactForm) {
   const spamTrap = contactForm.querySelector('[name="_gotcha"]');
   const submitButton = contactForm.querySelector('[type="submit"]');
   let isSending = false;
+  let isSubmitted = false;
 
   contactForm.addEventListener(
     'invalid',
@@ -133,7 +136,7 @@ if (contactForm) {
   contactForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    if (isSending) return;
+    if (isSending || isSubmitted) return;
     if (spamTrap && spamTrap.value) return;
     if (!contactForm.reportValidity()) return;
 
@@ -153,9 +156,12 @@ if (contactForm) {
       });
       if (!response.ok) throw new Error('Form submission failed');
 
-      contactForm.reset();
+      isSubmitted = true;
+      contactForm.querySelectorAll('input, select, textarea, button').forEach((control) => {
+        control.disabled = true;
+      });
       if (formStatus) {
-        formStatus.textContent = 'お問い合わせを送信しました。ご連絡ありがとうございます。';
+        formStatus.textContent = 'お問い合わせを送信しました。ご連絡ありがとうございます。内容を確認のうえ担当者よりご連絡します。再送信は不要です。';
         formStatus.dataset.state = 'success';
       }
     } catch {
@@ -165,7 +171,7 @@ if (contactForm) {
       }
     } finally {
       isSending = false;
-      if (submitButton) submitButton.disabled = false;
+      if (submitButton) submitButton.disabled = isSubmitted;
       contactForm.setAttribute('aria-busy', 'false');
     }
   });
