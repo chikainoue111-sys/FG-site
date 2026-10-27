@@ -677,7 +677,10 @@ p { margin: 0; }
   }
 
   .site-nav.is-open { display: flex; }
-  .site-nav a { padding: 11px 8px; }
+  .site-nav a {
+    min-height: 48px;
+    padding: 11px 8px;
+  }
   .site-nav a::after { display: none; }
   .site-nav .nav-cta { margin-top: 8px; text-align: center; }
 }
@@ -974,11 +977,11 @@ body:not(.home-page) .fade-up.is-inview {
 @media (max-width: 760px) {
   .page-hero,
   .section-shell {
-    padding-block: 44px;
+    padding-block: 52px;
   }
 
   .page-hero p:not(.eyebrow) {
-    font-size: 0.92rem;
+    font-size: 1rem;
   }
 
   .section-head {
@@ -1047,6 +1050,7 @@ body:not(.home-page) .fade-up.is-inview {
 
 .site-nav .nav-cta[aria-current="page"] {
   background: var(--gold-text);
+  color: var(--white);
 }
 
 @media (min-width: 961px) {
@@ -1362,6 +1366,50 @@ body:not(.home-page) .fade-up.is-inview {
   .info-table td {
     padding-top: 4px;
     padding-bottom: 14px;
+  }
+
+  .detail-card {
+    padding: 22px 18px;
+  }
+
+  .detail-card p,
+  .detail-card li {
+    font-size: 1rem;
+  }
+
+  .detail-card .service-meta,
+  .line-note,
+  .form-help {
+    font-size: 0.9rem;
+  }
+
+  .policy-content h2 {
+    margin-top: 32px;
+    padding-top: 22px;
+  }
+
+  .form-row label,
+  .form-consent {
+    font-size: 1rem;
+  }
+
+  .form-row input,
+  .form-row select,
+  .form-row textarea {
+    min-height: 52px;
+    font-size: 16px;
+  }
+
+  .form-consent input {
+    width: 20px;
+    height: 20px;
+    margin: 0 8px 2px 0;
+    vertical-align: middle;
+  }
+
+  .form-submit .btn {
+    width: 100%;
+    min-height: 52px;
   }
 }
 
