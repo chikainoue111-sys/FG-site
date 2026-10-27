@@ -69,10 +69,10 @@
             <p class="contact-free-note">初回相談料は無料です。</p>
 
             <div class="line-cta">
-              <a href="mailto:fortgate.info@gmail.com" class="line-btn">
-                メールで相談する
+              <a href="#contact-form" class="line-btn">
+                フォームで相談する
               </a>
-              <p class="line-note">メールアプリが開きます。内容をご記入のうえ送信してください。</p>
+              <p class="line-note">下記フォームに内容をご記入のうえ送信してください。</p>
             </div>
           </div>
 
@@ -81,24 +81,24 @@
             <p class="form-help">※ 必須項目をご入力のうえ送信してください。</p>
 
             <form
+              id="contact-form"
               class="contact-form"
-              action="mailto:fortgate.info@gmail.com"
-              method="post"
-              enctype="text/plain"
+              action="https://formspree.io/f/xoeeeolr"
+              method="POST"
               data-contact-form
             >
               <div class="form-honeypot" aria-hidden="true">
                 <label for="company-website">ウェブサイト</label>
                 <input
                   id="company-website"
-                  name="company_website"
+                  name="_gotcha"
                   type="text"
                   tabindex="-1"
                   autocomplete="off"
                 />
               </div>
               <div class="form-row">
-                <label for="name">お名前<span class="required">必須</span></label>
+                <label for="name">ご担当者名<span class="required">必須</span></label>
                 <input id="name" name="name" type="text" autocomplete="name" required />
               </div>
 
@@ -131,6 +131,14 @@
               <div class="form-row">
                 <label for="message">お問い合わせ内容<span class="required">必須</span></label>
                 <textarea id="message" name="message" required></textarea>
+              </div>
+
+              <div class="form-consent">
+                <label for="privacy-consent">
+                  <input id="privacy-consent" name="privacy_consent" type="checkbox" value="agreed" required />
+                  <a href="privacy.html">プライバシーポリシー</a>に同意のうえ送信します。
+                  <span class="required">必須</span>
+                </label>
               </div>
 
               <div class="form-submit">
