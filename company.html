@@ -32,6 +32,7 @@
         </a>
 
         <button
+          type="button"
           class="menu-toggle"
           aria-label="メニューを開く"
           aria-expanded="false"
@@ -44,7 +45,7 @@
           <a href="index.html">トップ</a>
           <a href="company.html" class="active" aria-current="page">会社概要</a>
           <a href="services.html">事業内容</a>
-          <a href="company.html#message">代表メッセージ</a>
+          <a href="message.html">代表メッセージ</a>
           <a href="contact.html" class="nav-cta">お問い合わせ</a>
         </nav>
       </div>
@@ -181,75 +182,33 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-meta-simple has-link">
-        <a href="privacy.html" class="footer-privacy-link">プライバシーポリシー</a>
+      <div class="container footer-inner">
+        <div class="footer-identity">
+          <a href="index.html" class="footer-brand" aria-label="FortGate ホーム">
+            <img src="assets/img/logo.JPG" alt="FortGate" class="footer-logo" />
+          </a>
+          <p class="footer-tagline">Audit &amp; Assurance</p>
+        </div>
+        <div class="footer-info">
+          <p class="footer-address-label">本店所在地</p>
+          <p class="footer-address">
+            〒542-0081 大阪府大阪市中央区南船場3丁目2番22号 おおきに南船場ビル205
+          </p>
+          <nav class="footer-nav" aria-label="フッターナビゲーション">
+            <a href="company.html">会社概要</a>
+            <a href="services.html">事業内容</a>
+            <a href="message.html">代表メッセージ</a>
+            <a href="access.html">アクセス</a>
+            <a href="contact.html">お問い合わせ</a>
+            <a href="privacy.html">プライバシーポリシー</a>
+          </nav>
+        </div>
+      </div>
+      <div class="container footer-meta">
         <small>© 2026 FortGate. All rights reserved.</small>
       </div>
     </footer>
 
-    <script>
-      (() => {
-        const toggle = document.querySelector(".menu-toggle");
-        const nav = document.querySelector("#global-nav");
-        const mobileQuery = window.matchMedia("(max-width: 960px)");
-
-        if (toggle && nav) {
-          const setMenuOpen = (open) => {
-            nav.classList.toggle("is-open", open);
-            toggle.setAttribute("aria-expanded", String(open));
-            toggle.setAttribute("aria-label", open ? "メニューを閉じる" : "メニューを開く");
-          };
-
-          toggle.addEventListener("click", () => {
-            const isOpen = toggle.getAttribute("aria-expanded") === "true";
-            setMenuOpen(!isOpen);
-          });
-
-          nav.addEventListener("click", (event) => {
-            if (mobileQuery.matches && event.target.closest("a")) setMenuOpen(false);
-          });
-
-          document.addEventListener("keydown", (event) => {
-            if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
-              setMenuOpen(false);
-              toggle.focus();
-            }
-          });
-
-          document.addEventListener("click", (event) => {
-            if (
-              mobileQuery.matches &&
-              toggle.getAttribute("aria-expanded") === "true" &&
-              !nav.contains(event.target) &&
-              !toggle.contains(event.target)
-            ) {
-              setMenuOpen(false);
-            }
-          });
-
-          mobileQuery.addEventListener("change", () => setMenuOpen(false));
-        }
-      })();
-
-      (() => {
-        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        const targets = document.querySelectorAll(".fade-up");
-        if (!targets.length || reduceMotion) {
-          targets.forEach((el) => el.classList.add("is-inview"));
-          return;
-        }
-
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add("is-inview");
-            io.unobserve(entry.target);
-          });
-        }, { threshold: 0.15 });
-
-        targets.forEach((el) => io.observe(el));
-      })();
-    </script>
+    <script src="assets/js/main.js"></script>
   </body>
 </html>
-
