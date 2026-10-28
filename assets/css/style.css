@@ -150,8 +150,8 @@ p { margin: 0; }
   transition: transform 280ms var(--ease-out);
 }
 
-.site-nav a:hover,
-.site-nav a.active { color: var(--gold-text); }
+.site-nav a:not(.nav-cta):hover,
+.site-nav a.active:not(.nav-cta) { color: var(--gold-text); }
 
 .site-nav a:hover::after,
 .site-nav a.active::after {
@@ -703,7 +703,7 @@ p { margin: 0; }
     line-height: 1.5;
   }
 
-  .lead { font-size: 0.92rem; }
+  .lead { font-size: 1rem; }
 
   .hero-actions {
     gap: 10px;
@@ -712,7 +712,7 @@ p { margin: 0; }
 
   .hero-actions .btn { flex: 1 1 160px; }
 
-  .hero-points { font-size: 0.8rem; }
+  .hero-points { font-size: 0.9rem; }
 
   .fg-value {
     max-width: 100%;
@@ -723,7 +723,7 @@ p { margin: 0; }
   .fg-value-message,
   .why-step p:not(.why-step-number):not(.why-step-label),
   .about-copy {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 }
 
@@ -1361,6 +1361,7 @@ body:not(.home-page) .fade-up.is-inview {
     width: 100%;
     padding: 10px 14px;
     border: 0;
+    font-size: 1rem;
   }
 
   .info-table td {
@@ -1379,8 +1380,42 @@ body:not(.home-page) .fade-up.is-inview {
 
   .detail-card .service-meta,
   .line-note,
-  .form-help {
-    font-size: 0.9rem;
+  .form-help,
+  .form-status {
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .contact-card {
+    margin-bottom: 32px;
+    padding-bottom: 28px;
+  }
+
+  .contact-form {
+    margin-top: 24px;
+    gap: 24px;
+  }
+
+  .form-row {
+    gap: 10px;
+  }
+
+  .line-btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  .fg-reasons-link,
+  .about-contact-link .text-link,
+  .footer-privacy-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding-block: 8px;
+  }
+
+  .footer-privacy-link {
+    font-size: 0.95rem;
   }
 
   .policy-content h2 {
@@ -1405,6 +1440,12 @@ body:not(.home-page) .fade-up.is-inview {
     height: 20px;
     margin: 0 8px 2px 0;
     vertical-align: middle;
+  }
+
+  .form-consent label {
+    display: block;
+    padding-block: 10px;
+    line-height: 2;
   }
 
   .form-submit .btn {
