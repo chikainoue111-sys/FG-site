@@ -1598,7 +1598,16 @@ body:not(.home-page) .fade-up.is-inview {
 
 @media (max-width: 760px) {
   .reveal-item.is-inview {
-    animation: text-fade-up 520ms var(--ease-out) both;
+    animation: mobile-soft-reveal 700ms var(--ease-out) both;
+  }
+
+  body:not(.home-page) .fade-up.is-inview {
+    animation: mobile-soft-reveal 700ms var(--ease-out) both;
+  }
+
+  @keyframes mobile-soft-reveal {
+    from { opacity: 0.18; }
+    to { opacity: 1; }
   }
 }
 
