@@ -756,6 +756,37 @@ p { margin: 0; }
   }
 }
 
+@media (max-width: 760px) {
+  .mobile-break { display: block; }
+
+  .why-step {
+    margin-top: 16px;
+    padding: 20px;
+    border: 1px solid rgba(17, 43, 70, 0.1);
+    border-radius: 12px;
+    background: #fff;
+    transition:
+      border-color 220ms var(--ease-soft),
+      box-shadow 220ms var(--ease-soft),
+      transform 220ms var(--ease-soft);
+  }
+
+  .why-step + .why-step {
+    padding-top: 20px;
+    border-top: 1px solid rgba(17, 43, 70, 0.1);
+  }
+
+  .why-step.is-mobile-active {
+    border-color: rgba(185, 151, 95, 0.55);
+    box-shadow: 0 10px 24px rgba(17, 43, 70, 0.08);
+    transform: translateY(-2px);
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
+  .why-step { transition: none; }
+}
+
 /* ==================================================
    下層ページ共通
    ================================================== */

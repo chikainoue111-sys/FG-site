@@ -114,6 +114,39 @@ if (revealItems.length) {
   }
 }
 
+const mobileWhySteps = Array.from(document.querySelectorAll('.panel-why .why-step'));
+if (mobileWhySteps.length && 'IntersectionObserver' in window) {
+  const mobileWhyQuery = window.matchMedia('(max-width: 760px)');
+  let whyObserver;
+
+  const updateMobileWhyObserver = () => {
+    if (whyObserver) whyObserver.disconnect();
+    mobileWhySteps.forEach((step) => step.classList.remove('is-mobile-active'));
+    if (!mobileWhyQuery.matches) return;
+
+    whyObserver = new IntersectionObserver(
+      () => {
+        const viewportCenter = window.innerHeight / 2;
+        const activeStep = mobileWhySteps.reduce((closest, step) => {
+          const rect = step.getBoundingClientRect();
+          const distance = Math.abs((rect.top + rect.bottom) / 2 - viewportCenter);
+          return !closest || distance < closest.distance ? { step, distance } : closest;
+        }, null);
+
+        mobileWhySteps.forEach((step) => {
+          step.classList.toggle('is-mobile-active', step === activeStep.step);
+        });
+      },
+      { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+    );
+
+    mobileWhySteps.forEach((step) => whyObserver.observe(step));
+  };
+
+  updateMobileWhyObserver();
+  mobileWhyQuery.addEventListener('change', updateMobileWhyObserver);
+}
+
 const contactForm = document.querySelector('[data-contact-form]');
 if (contactForm) {
   const formStatus = contactForm.querySelector('[data-form-status]');
