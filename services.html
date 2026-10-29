@@ -8,6 +8,20 @@
       content="保険代理店向けに外部監査、内部統制・ガバナンス支援、自己点検・業務品質評価フォローアップを提供しています。"
     />
     <title>事業内容 | 保険代理店向け監査サービス FortGate</title>
+    <script>
+      if (
+        window.matchMedia("(max-width: 760px) and (prefers-reduced-motion: no-preference)").matches &&
+        "IntersectionObserver" in window
+      ) {
+        document.documentElement.classList.add("service-reveal-enabled");
+        window.setTimeout(() => {
+          if (!document.documentElement.classList.contains("service-reveal-initialized")) {
+            document.documentElement.classList.remove("service-reveal-enabled");
+            console.warn("Service reveal did not initialize; displaying all service content.");
+          }
+        }, 4000);
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

@@ -1598,44 +1598,47 @@ body:not(.home-page) .fade-up.is-inview {
 
 @media (max-width: 760px) {
   .reveal-item.is-inview {
-    animation: mobile-soft-reveal 700ms var(--ease-out) both;
+    animation: mobile-soft-reveal 1200ms ease-in-out both;
   }
 
   body:not(.home-page) .fade-up.is-inview {
-    animation: mobile-soft-reveal 700ms var(--ease-out) both;
+    animation: mobile-soft-reveal 1200ms ease-in-out both;
   }
 
   @keyframes mobile-soft-reveal {
-    from { opacity: 0.18; }
+    from { opacity: 0; }
     to { opacity: 1; }
   }
 }
 
 @media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
   .service-stack > .detail-card.is-inview {
-    animation: mobile-service-reveal 800ms var(--ease-soft) both;
+    animation: none;
+  }
+
+  .service-stack > .detail-card {
     --service-reveal-x: -18px;
   }
 
-  .service-stack > .detail-card:nth-child(even).is-inview {
+  .service-stack > .detail-card:nth-child(even) {
     --service-reveal-x: 18px;
   }
 
-  @keyframes mobile-service-reveal {
-    from {
-      opacity: 0;
-      transform: translateX(var(--service-reveal-x));
-    }
+  .service-reveal-enabled .service-stack > .detail-card > * {
+    opacity: 0;
+    transform: translateX(var(--service-reveal-x));
+  }
 
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
+  .service-reveal-enabled .service-stack > .detail-card > .is-service-visible {
+    opacity: 1;
+    transform: none;
+    transition: opacity 1200ms ease-in-out, transform 1200ms var(--ease-soft);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal-item.is-inview {
+  .reveal-item.is-inview,
+  body:not(.home-page) .fade-up.is-inview {
     animation: none;
   }
 

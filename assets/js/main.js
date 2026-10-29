@@ -114,6 +114,39 @@ if (revealItems.length) {
   }
 }
 
+const serviceCards = Array.from(document.querySelectorAll('.service-stack > .detail-card'));
+if (serviceCards.length && 'IntersectionObserver' in window) {
+  const serviceRevealQuery = window.matchMedia(
+    '(max-width: 760px) and (prefers-reduced-motion: no-preference)'
+  );
+  const serviceParts = serviceCards.flatMap((card) => Array.from(card.children));
+  let serviceObserver;
+
+  const configureServiceReveal = () => {
+    if (serviceObserver) serviceObserver.disconnect();
+    document.documentElement.classList.toggle('service-reveal-enabled', serviceRevealQuery.matches);
+    if (!serviceRevealQuery.matches) return;
+
+    serviceObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-service-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0, rootMargin: '0px 0px -15% 0px' }
+    );
+    serviceParts.forEach((part) => {
+      if (!part.classList.contains('is-service-visible')) serviceObserver.observe(part);
+    });
+    document.documentElement.classList.add('service-reveal-initialized');
+  };
+
+  configureServiceReveal();
+  serviceRevealQuery.addEventListener('change', configureServiceReveal);
+}
+
 const mobileWhyPanel = document.querySelector('.home-page .panel-why');
 if (mobileWhyPanel) {
   const mobileWhyQuery = window.matchMedia('(max-width: 760px)');
