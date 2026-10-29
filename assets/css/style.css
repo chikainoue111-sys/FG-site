@@ -759,32 +759,43 @@ p { margin: 0; }
 @media (max-width: 760px) {
   .mobile-break { display: block; }
 
-  .why-step {
-    margin-top: 16px;
-    padding: 20px;
-    border: 1px solid rgba(17, 43, 70, 0.1);
-    border-radius: 12px;
-    background: #fff;
-    transition:
-      border-color 220ms var(--ease-soft),
-      box-shadow 220ms var(--ease-soft),
-      transform 220ms var(--ease-soft);
+  .home-stage.has-mobile-why-scroll {
+    /* Unlike hidden, clip does not create a scroll container that traps sticky. */
+    overflow: clip;
   }
 
-  .why-step + .why-step {
-    padding-top: 20px;
-    border-top: 1px solid rgba(17, 43, 70, 0.1);
+  .panel-why.has-horizontal-scroll {
+    padding-block: 24px;
+    min-height: calc(var(--why-shell-height) + var(--why-scroll-distance) + 48px);
   }
 
-  .why-step.is-mobile-active {
-    border-color: rgba(185, 151, 95, 0.55);
-    box-shadow: 0 10px 24px rgba(17, 43, 70, 0.08);
-    transform: translateY(-2px);
+  .has-horizontal-scroll .why-shell {
+    position: sticky;
+    top: var(--why-pin-top);
+    gap: 24px;
   }
-}
 
-@media (max-width: 760px) and (prefers-reduced-motion: reduce) {
-  .why-step { transition: none; }
+  .has-horizontal-scroll .why-steps {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    align-items: start;
+    overflow: hidden;
+  }
+
+  .has-horizontal-scroll .why-step {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    opacity: 1;
+    transform: translateX(var(--why-translate, 0%));
+    transition: transform 480ms var(--ease-out);
+  }
+
+  .has-horizontal-scroll .why-shell > .reveal-item {
+    animation: none;
+  }
 }
 
 /* ==================================================
@@ -1587,12 +1598,47 @@ body:not(.home-page) .fade-up.is-inview {
 
 @media (max-width: 760px) {
   .reveal-item.is-inview {
-    animation: text-fade-up 520ms var(--ease-out) both;
+    animation: mobile-soft-reveal 1200ms ease-in-out both;
+  }
+
+  body:not(.home-page) .fade-up.is-inview {
+    animation: mobile-soft-reveal 1200ms ease-in-out both;
+  }
+
+  @keyframes mobile-soft-reveal {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+@media (max-width: 760px) and (prefers-reduced-motion: no-preference) {
+  .service-stack > .detail-card.is-inview {
+    animation: none;
+  }
+
+  .service-stack > .detail-card {
+    --service-reveal-x: -18px;
+  }
+
+  .service-stack > .detail-card:nth-child(even) {
+    --service-reveal-x: 18px;
+  }
+
+  .service-reveal-enabled .service-stack > .detail-card > * {
+    opacity: 0;
+    transform: translateX(var(--service-reveal-x));
+  }
+
+  .service-reveal-enabled .service-stack > .detail-card > .is-service-visible {
+    opacity: 1;
+    transform: none;
+    transition: opacity 1200ms ease-in-out, transform 1200ms var(--ease-soft);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .reveal-item.is-inview {
+  .reveal-item.is-inview,
+  body:not(.home-page) .fade-up.is-inview {
     animation: none;
   }
 

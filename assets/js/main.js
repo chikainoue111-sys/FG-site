@@ -114,37 +114,109 @@ if (revealItems.length) {
   }
 }
 
-const mobileWhySteps = Array.from(document.querySelectorAll('.panel-why .why-step'));
-if (mobileWhySteps.length && 'IntersectionObserver' in window) {
-  const mobileWhyQuery = window.matchMedia('(max-width: 760px)');
-  let whyObserver;
+const serviceCards = Array.from(document.querySelectorAll('.service-stack > .detail-card'));
+if (serviceCards.length && 'IntersectionObserver' in window) {
+  const serviceRevealQuery = window.matchMedia(
+    '(max-width: 760px) and (prefers-reduced-motion: no-preference)'
+  );
+  const serviceParts = serviceCards.flatMap((card) => Array.from(card.children));
+  let serviceObserver;
 
-  const updateMobileWhyObserver = () => {
-    if (whyObserver) whyObserver.disconnect();
-    mobileWhySteps.forEach((step) => step.classList.remove('is-mobile-active'));
-    if (!mobileWhyQuery.matches) return;
+  const configureServiceReveal = () => {
+    if (serviceObserver) serviceObserver.disconnect();
+    document.documentElement.classList.toggle('service-reveal-enabled', serviceRevealQuery.matches);
+    if (!serviceRevealQuery.matches) return;
 
-    whyObserver = new IntersectionObserver(
-      () => {
-        const viewportCenter = window.innerHeight / 2;
-        const activeStep = mobileWhySteps.reduce((closest, step) => {
-          const rect = step.getBoundingClientRect();
-          const distance = Math.abs((rect.top + rect.bottom) / 2 - viewportCenter);
-          return !closest || distance < closest.distance ? { step, distance } : closest;
-        }, null);
-
-        mobileWhySteps.forEach((step) => {
-          step.classList.toggle('is-mobile-active', step === activeStep.step);
+    serviceObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-service-visible');
+          observer.unobserve(entry.target);
         });
       },
-      { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+      { threshold: 0, rootMargin: '0px 0px -15% 0px' }
     );
-
-    mobileWhySteps.forEach((step) => whyObserver.observe(step));
+    serviceParts.forEach((part) => {
+      if (!part.classList.contains('is-service-visible')) serviceObserver.observe(part);
+    });
+    document.documentElement.classList.add('service-reveal-initialized');
   };
 
-  updateMobileWhyObserver();
-  mobileWhyQuery.addEventListener('change', updateMobileWhyObserver);
+  configureServiceReveal();
+  serviceRevealQuery.addEventListener('change', configureServiceReveal);
+}
+
+const mobileWhyPanel = document.querySelector('.home-page .panel-why');
+if (mobileWhyPanel) {
+  const mobileWhyQuery = window.matchMedia('(max-width: 760px)');
+  const shell = mobileWhyPanel.querySelector('.why-shell');
+  const stepsContainer = mobileWhyPanel.querySelector('.why-steps');
+  const steps = Array.from(mobileWhyPanel.querySelectorAll('.why-step'));
+  const stage = mobileWhyPanel.closest('.home-stage');
+  let enabled = false;
+  let frame = 0;
+  let pinTop = 0;
+  let scrollDistance = 1;
+  let activeIndex = -1;
+
+  const updateSlide = () => {
+    frame = 0;
+    if (!enabled) return;
+    const start = mobileWhyPanel.getBoundingClientRect().top + 24;
+    const progress = Math.max(0, Math.min(1, (pinTop - start) / scrollDistance));
+    const nextIndex = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+    if (nextIndex !== activeIndex) {
+      activeIndex = nextIndex;
+      mobileWhyPanel.style.setProperty('--why-translate', `${-activeIndex * 100}%`);
+      steps.forEach((step, index) => {
+        step.setAttribute('aria-hidden', String(index !== activeIndex));
+      });
+    }
+  };
+
+  const requestSlide = () => {
+    if (enabled && !frame) frame = window.requestAnimationFrame(updateSlide);
+  };
+
+  const measure = () => {
+    if (!enabled) return;
+    const headerHeight = header ? header.getBoundingClientRect().height : 0;
+    // On short screens, let the introduction scroll up before pinning the slides.
+    pinTop = Math.min(headerHeight + 12, window.innerHeight - shell.offsetHeight - 16);
+    scrollDistance = Math.max(window.innerHeight, shell.offsetWidth) * steps.length;
+    mobileWhyPanel.style.setProperty('--why-shell-height', `${shell.offsetHeight}px`);
+    mobileWhyPanel.style.setProperty('--why-pin-top', `${pinTop}px`);
+    mobileWhyPanel.style.setProperty('--why-scroll-distance', `${scrollDistance}px`);
+    requestSlide();
+  };
+
+  const configure = () => {
+    enabled = mobileWhyQuery.matches && !(reducedMotionQuery && reducedMotionQuery.matches);
+    stage.classList.toggle('has-mobile-why-scroll', enabled);
+    mobileWhyPanel.classList.toggle('has-horizontal-scroll', enabled);
+    if (enabled) {
+      stepsContainer.setAttribute('aria-live', 'off');
+      window.addEventListener('scroll', requestSlide, { passive: true });
+      measure();
+    } else {
+      window.removeEventListener('scroll', requestSlide);
+      window.cancelAnimationFrame(frame);
+      frame = 0;
+      activeIndex = -1;
+      steps.forEach((step) => step.removeAttribute('aria-hidden'));
+      stepsContainer.setAttribute('aria-live', 'polite');
+      ['--why-shell-height', '--why-pin-top', '--why-scroll-distance', '--why-translate'].forEach((property) => {
+        mobileWhyPanel.style.removeProperty(property);
+      });
+    }
+  };
+
+  mobileWhyQuery.addEventListener('change', configure);
+  if (reducedMotionQuery) reducedMotionQuery.addEventListener('change', configure);
+  window.addEventListener('resize', measure);
+  if ('ResizeObserver' in window) new ResizeObserver(measure).observe(shell);
+  configure();
 }
 
 const contactForm = document.querySelector('[data-contact-form]');
