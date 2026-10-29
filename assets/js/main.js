@@ -132,10 +132,10 @@ if (mobileWhyPanel) {
     if (!enabled) return;
     const start = mobileWhyPanel.getBoundingClientRect().top + 24;
     const progress = Math.max(0, Math.min(1, (pinTop - start) / scrollDistance));
-    mobileWhyPanel.style.setProperty('--why-translate', `${-progress * (steps.length - 1) * 100}%`);
-    const nextIndex = Math.round(progress * (steps.length - 1));
+    const nextIndex = Math.min(steps.length - 1, Math.floor(progress * steps.length));
     if (nextIndex !== activeIndex) {
       activeIndex = nextIndex;
+      mobileWhyPanel.style.setProperty('--why-translate', `${-activeIndex * 100}%`);
       steps.forEach((step, index) => {
         step.setAttribute('aria-hidden', String(index !== activeIndex));
       });
@@ -151,7 +151,7 @@ if (mobileWhyPanel) {
     const headerHeight = header ? header.getBoundingClientRect().height : 0;
     // On short screens, let the introduction scroll up before pinning the slides.
     pinTop = Math.min(headerHeight + 12, window.innerHeight - shell.offsetHeight - 16);
-    scrollDistance = Math.max(window.innerHeight, shell.offsetWidth) * (steps.length - 1);
+    scrollDistance = Math.max(window.innerHeight, shell.offsetWidth) * steps.length;
     mobileWhyPanel.style.setProperty('--why-shell-height', `${shell.offsetHeight}px`);
     mobileWhyPanel.style.setProperty('--why-pin-top', `${pinTop}px`);
     mobileWhyPanel.style.setProperty('--why-scroll-distance', `${scrollDistance}px`);

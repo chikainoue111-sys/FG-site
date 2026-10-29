@@ -790,7 +790,7 @@ p { margin: 0; }
     border: 0;
     opacity: 1;
     transform: translateX(var(--why-translate, 0%));
-    transition: none;
+    transition: transform 480ms var(--ease-out);
   }
 
   .has-horizontal-scroll .why-shell > .reveal-item {
